@@ -151,6 +151,6 @@ def recursiveSearch(Node):
 
 recursiveSearch(root)
 
-Trees = [a.History for a in BoardTree]
+Trees = [[a.NoTurn,a.Winner,a.History] for a in BoardTree]
 Trees = np.array(Trees)
 np.savetxt("SearchedTree.csv",Trees)
