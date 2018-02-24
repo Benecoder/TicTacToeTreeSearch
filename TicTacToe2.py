@@ -104,11 +104,12 @@ class StateOfBoard():
 		if self.digit(self.State,x) != 1:
 			print("Trying to capture a captured spot. This incident will be reported.")
 			print("Index: "+str(x))
+			self.displayState()
 			raise
 
 		self.State += ((self.NoTurn%2)+1)*(10**x)
 
-		self.History += x*(10**self.NoTurn)
+		self.History += x*(10**(9-self.NoTurn))
 		self.NoTurn +=1
 
 		self.check()
@@ -123,12 +124,13 @@ class StateOfBoard():
 
 
 root = StateOfBoard()
-BoardTree = []
+BoardTree = [root]
 
 def recursiveSearch(Node):
 
 	open = Node.options()
-	for index in open[:-1]:
+
+	for index in open[1:]:
 		BoardTree.append(StateOfBoard(initState = Node.State,
 						NoTurn = Node.NoTurn,
 						History = Node.History))
@@ -139,18 +141,15 @@ def recursiveSearch(Node):
 #		else:
 #			BoardTree[-1].displayState()
 
-	if len(open>0):
-		Node.move(open[-1])
+	if len(open) > 0:
+		Node.move(open[0])
 
 		if Node.finished != True:
 			recursiveSearch(Node)
-#		else:
-#			Node.displayState()
-
-
 
 recursiveSearch(root)
 
-Trees = [[a.NoTurn,a.Winner,a.History] for a in BoardTree]
-Trees = np.array(Trees)
-np.savetxt("SearchedTree.csv",Trees)
+Tree = [[a.NoTurn,a.Winner,a.History] for a in BoardTree]
+
+Tree = np.array(Tree)
+np.savetxt("SearchedTree.csv",Tree)
