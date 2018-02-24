@@ -40,5 +40,5 @@ The list is ordered in the sense, that in the first move always the first openin
 <b> SearchedTree.csv</b>
 
 The CSV file that is return from running every possible combination of moves. Technicly only every second game of TicTacToe because
-you could alwys exchange the o's and the x's and get the same opposite result.
+you could always exchange the o's and the x's and get the same but opposite result.
 
