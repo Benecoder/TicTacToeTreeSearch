@@ -14,7 +14,7 @@ initState(Nine digit integer):  The State at wich the Board will be initialized 
 
 NoTurn:   The Number of Turns that have already be performed. Should in the Fute be handled by the init function itself.
 
-History:  The Order in wich the moves have been made. A nine digit integer Number, that stores the order in which the Board has been played on.Lowest digit is the last move. Starts top left and ends bottom right.
+History:  The Order in wich the moves have been made. A list of integers where 0 encodes the top left spot and 8 encodes the bottom right one.
 
 
 
@@ -39,6 +39,5 @@ The list is ordered in the sense, that in the first move always the first openin
 
 <b> SearchedTree.csv</b>
 
-The CSV file that is return from running every possible combination of moves. Technicly only every second game of TicTacToe because
-you could always exchange the o's and the x's and get the same but opposite result.
+The CSV file that is return from running every possible combination of moves. Technicly only every second game of TicTacToe because you could always exchange the o's and the x's and get the same but opposite result. Every row encodes one game with first column being the Number of turns the second being the winner and the remaining Spots being the History of gameplay. Every Row is filled up with tens so as to not have a jagged List.
 
