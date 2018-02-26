@@ -8,29 +8,34 @@ def usermove():
 
         userin = raw_input("")
         inputOK = False
+        options = mainBoard.options()
+
         while inputOK != True:
                 if userin.isdigit():
                         if 0<=int(userin)<9:
-                                inputOK = True
+                        	if int(userin) in options:
+                        		inputOK = True
                 if inputOK == False:
-                        print("Please enter a number between 1 and 9.")
+                        print("Please enter a number between 1 and 9 corresponding to a free spot.")
                         userin = raw_input("")
 
 
-        mainBoard.move(int(userin)+1)
+        mainBoard.move(int(userin))
 
 def algorithmMove():
-	Possible = Tree[:,2]
-	print(Possible[10000])
-	Possible -=  10**10
-	print(Possible[10000])
-	Possible -= (mainBoard.History-10**10)
-	print(str(Possible[10000])+"\t"+str(mainBoard.History-10**10))
-	Possible = Possible[Possible>0]
-	Possible = Possible[Possible<(10**mainBoard.NoTurn-1)]
-	options = mainBoard.options()
-	mainBoard.move(options[0])
-	print(Possible[0])
+
+	Possible = Tree*1 - 10**10
+	Possible[:,2] -= (mainBoard.History-10**10)
+	Possible[:,2] = Possible[:,2][Possible[:,2]>0]
+	print(len(Possible[:,2]<(10**(10-mainBoard.NoTurn))))
+	print(len(Possible[:,2]))
+	Possible[:,2] = Possible[:,2][Possible[:,2]<(10**(10-mainBoard.NoTurn))]
+	
+	desirable = Possible[:,1][Possible[:,1] == 3]
+	
+	choice = desirable[random.randint(0,len(desirable))][2]
+	
+	mainBoard.move(mainBoard.digit(choice,(8-mainBoard.NoTurn)))
 
 
 
@@ -43,6 +48,7 @@ while mainBoard.finished != True:
 
 	mainBoard.displayState()
 	usermove()
+	mainBoard.displayState()
 	algorithmMove()
 
 print(mainBoard.symbol(mainBoard.Winner)+" has won the Game.")
