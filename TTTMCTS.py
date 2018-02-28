@@ -22,21 +22,6 @@ def usermove():
 
         mainBoard.move(int(userin))
 
-def algorithmMove():
-
-	Possible = Tree*1 - 10**10
-	Possible[:,2] -= (mainBoard.History-10**10)
-	Possible[:,2] = Possible[:,2][Possible[:,2]>0]
-	print(len(Possible[:,2]<(10**(10-mainBoard.NoTurn))))
-	print(len(Possible[:,2]))
-	Possible[:,2] = Possible[:,2][Possible[:,2]<(10**(10-mainBoard.NoTurn))]
-	
-	desirable = Possible[:,1][Possible[:,1] == 3]
-	
-	choice = desirable[random.randint(0,len(desirable))][2]
-	
-	mainBoard.move(mainBoard.digit(choice,(8-mainBoard.NoTurn)))
-
 
 
 print("Lets play a gameof TicTacToe.")
@@ -48,7 +33,5 @@ while mainBoard.finished != True:
 
 	mainBoard.displayState()
 	usermove()
-	mainBoard.displayState()
-	algorithmMove()
 
 print(mainBoard.symbol(mainBoard.Winner)+" has won the Game.")
