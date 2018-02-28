@@ -33,7 +33,7 @@ class StateOfBoard():
 			self.NoTurn = NoTurn
 
 		if History == None:
-			self.History = 10**10
+			self.History = 10**9
 		else:
 			self.History = History
 
@@ -109,7 +109,7 @@ class StateOfBoard():
 
 		self.State += ((self.NoTurn%2)+1)*(10**x)
 
-		self.History += x*(10**(9-self.NoTurn))
+		self.History += x*(10**(8-self.NoTurn))
 		self.NoTurn +=1
 
 		self.check()
