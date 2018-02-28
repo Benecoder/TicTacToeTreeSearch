@@ -41,3 +41,7 @@ The list is ordered in the sense, that in the first move always the first openin
 
 The CSV file that is return from running every possible combination of moves. Technicly only every second game of TicTacToe because you could always exchange the o's and the x's and get the same but opposite result. Every row encodes one game with first column being the Number of turns the second being the winner and the remaining Spots being the History of gameplay. Every Row is filled up with tens so as to not have a jagged List.
 
+<b> TTTMCTS - TicTacToe monte Carlo Tree Search </b>
+
+This file uses the TicTacToe class from TicTacToe2.py and the searched tree to classify the moves into moves that could lead to a win and moves that could not. It then takes the first available option. I.e. it's a really shitty bot.
+
