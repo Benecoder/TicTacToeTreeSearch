@@ -31,6 +31,7 @@ def merge_decimal(list):
 
 def Probabilities(options):
     
+    
     WinProbs = []
     
     for i in range(len(options)):
