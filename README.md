@@ -43,5 +43,5 @@ The CSV file that is return from running every possible combination of moves. Te
 
 <b> TTTMCTS - TicTacToe monte Carlo Tree Search </b>
 
-This file uses the TicTacToe class from TicTacToe2.py and the searched tree to classify the moves into moves that could lead to a win and moves that could not. It then calculates the quotient of wins vs. Possible Outcomes and chooses the highest cut.
+This file uses the TicTacToe class from TicTacToe2.py and the searched tree to classify the moves into moves that could lead to a win and moves that could not. It figures out wich move is the best and does not lead to disaster one move after.
 
