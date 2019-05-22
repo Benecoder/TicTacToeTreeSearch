@@ -60,13 +60,13 @@ def Probabilities(options,History,NoTurn,recursion = True):
             Possible = Tree[completemask]
             Wins = Possible[Possible[:,1]==3]
             WinProb = float(len(Wins))/len(Possible)
-            
+
             if recursion:
                 DisasterPrevention = np.min(Probabilities(remain_options,proposedHistory,NoTurn+1,recursion = False))
                 WinProb *= DisasterPrevention
-            
+
             WinProbs.append(WinProb)
-        
+
     WinProbs = np.array(WinProbs)
     return WinProbs
 
@@ -77,7 +77,7 @@ def botmove():
         print(str(j)+': '+str(round(WP[j],5)))
     mainBoard.move(options[np.argmax(WP)])
 
-print("Lets play a gameof TicTacToe.")
+print("Lets play a game of TicTacToe.")
 print(" x starts and you should insert a number between 0 and 9 \n corresponding to the field you want to play.")
 
 
