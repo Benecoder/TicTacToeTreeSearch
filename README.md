@@ -28,7 +28,7 @@ displayState: Display the present state of the board.
 
 check: Checks wether the game has finished.
 
-move: makes the move on the xth field on the board. Who's turn it is is automaticcly alternated and check is beeing called on.
+move: makes the move on the xth field on the board. Who's turn it is is automatically alternated and check is beeing called on.
 
 options: returns a list of empty fields.
 
